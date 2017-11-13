@@ -5,7 +5,7 @@ A two sided market place for commercial kitchen businesses to buy and sell their
 
 ***When you inspect your browser and amend the view to iphone you'll be able to see the design compatibility.***
 
-![Kitchy mobile](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/kitchy.png)
+![Kitchy mobile](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/kitchy.png)
 
 [Kitchy](https://kitchy.herokuapp.com/)
 
@@ -84,7 +84,7 @@ Once you've made a purchase you'll be redirected to home and the transaction wil
 
 *please note, the userflow img includes cart functionality preview as a registered and an unregistered user which has not been implemented*
 
-![userflow](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/kitchy_userflow.png)
+![userflow](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/kitchy_userflow.png)
 
 
 4 - Wireframes
@@ -93,27 +93,27 @@ The design scheme has been kept throughout the website with different aspects re
 
 * Login
 
-  ![Login page](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/Login_page.png)
+  ![Login page](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/Login_page.png)
 
 * Home
 
-  ![Home Registered](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/Home_Registered.png)
+  ![Home Registered](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/Home_Registered.png)
 
 * Product Page
 
-  ![Product Page](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/Product_page.png)
+  ![Product Page](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/Product_page.png)
 
 * Payment
 
-  ![Payment](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/Payment.png)
+  ![Payment](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/Payment.png)
 
 * Profile
 
-  ![Profile Page](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/Profile_page.png)
+  ![Profile Page](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/Profile_page.png)
 
 * Transaction
 
-  ![My Transactions](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/My_transactions.png)
+  ![My Transactions](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/My_transactions.png)
 
 
 ## Entity Relationship Diagram (ERD)
