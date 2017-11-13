@@ -1,0 +1,33 @@
+<%= render 'partials/navbar' %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="d-flex mx-auto logo">
+    <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+</div>
+
+
+<h1 class="category-head">CATEGORIES</h1>
+
+
+
+
+<div class="container">
+  <div class="card bg-color product-card d-flex col-12 col-6 mx-auto" style="width: 20rem;">
+
+      <% @categories.each do |category| %>
+        <tr>
+          <p class="categories"><%= category.category_name %></span>
+          <span><%= link_to 'Show', category %></span>
+          <!-- <span><%= link_to 'Edit', edit_category_path(category) %></span>
+          <span><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></span> -->
+        </tr>
+      <% end %>
+
+
+    <div class="d-flex justify-content-center product-show-footer">
+    <%= link_to 'New Category', new_category_path, class: "btn btn-block btn-font"%>
+    </div>
+  </div>
+</div>

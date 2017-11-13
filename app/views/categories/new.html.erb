@@ -1,0 +1,18 @@
+<%= render 'partials/navbar' %>
+<div class="row">
+  <div class="d-flex mx-auto logo">
+    <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+</div>
+
+<h2 class="category-name">PRODUCT CATEGORY</h2>
+
+
+<div class=" mx-auto product-card d-flex col-12 col-6" style="width: 20rem;">
+  <%= render 'form', category: @category, class: "category-form"%>
+</div>
+
+
+<div class="d-flex justify-content-center product-show-footer">
+<%= link_to 'Back', categories_path %>
+</div>

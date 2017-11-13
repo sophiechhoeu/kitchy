@@ -1,0 +1,55 @@
+
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <div class="field">
+    <%#= form.label :seller_user_id %>
+    <%#= form.number_field :seller_user_id, id: :product_seller_user_id %>
+  </div> -->
+
+<div class="card bg-color product-card d-flex col-12 col-6 mx-auto" style="width: 20rem;">
+    <div class="field">
+      <%= form.label :product_name %>
+      <p><%= form.text_field :product_name, id: :product_product_name %><p>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <p><%= form.text_area :description, id: :product_description %><p>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <p><%= form.number_field :price, id: :product_price %><p>
+    </div>
+
+    <div class="field">
+      <%= form.label :image_data %>
+      <p><%= form.file_field :image, id: :product_image_data %><p>
+    </div>
+
+    <div class="field">
+      <%= form.label :quantity_available %>
+      <p><%= form.text_field :quantity_available, id: :product_quantity_available %><p>
+    </div>
+
+    <div class="field">
+      <%= form.label :category_id %>
+      <p><%= form.select :category_id, @categories.collect { |category| [category.category_name, category.id] } %><p>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-block btn-font" %>
+    </div>
+    <% end %>
+  </div>

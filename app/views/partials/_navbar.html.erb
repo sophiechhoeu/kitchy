@@ -1,0 +1,57 @@
+<nav class="navbar navbar-font navbar-expand-lg navbar-light bg-kitchy">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle font-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <% if current_user.present? %>
+            <%=link_to "Profile", profile_path(current_user), class:"dropdown-item" %>
+          <% end %>
+
+          <div class="dropdown-divider"></div>
+          <%= link_to 'My Transactions', mypurchase_path, class:"dropdown-item"%>
+          <%=link_to "Messages", messages_path(@messages), class:"dropdown-item" %>
+
+          <% if current_user.present? %>
+            <%= link_to 'New Product', new_product_path, class: 'dropdown-item'%>
+          <% end %>
+
+        </div>
+
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <%= form_tag(root_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", :name => nil, class: "btn-default" %>
+      <% end %>
+    </form>
+    <span>
+      <div class="navbar-log">
+        <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link" ) %>
+        <% else %>
+        <%= link_to('Login', new_user_session_path, class: "nav-link " )  %>
+        <% end %>
+        </span>
+      </div>
+
+
+    <% if user_signed_in?  %>
+    <span>Hi <%= current_user.profile.name %>!</span>
+      </p>
+      <% else %>
+      <span> Hi Guest </span>
+    <% end %>
+
+  </div>
+</nav>

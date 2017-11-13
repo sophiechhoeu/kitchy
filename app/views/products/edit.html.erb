@@ -1,0 +1,18 @@
+<%= render 'partials/navbar' %>
+<div class="row">
+  <div class="d-flex mx-auto logo">
+    <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+
+</div>
+
+<h1 class="edit-product">Editing Product</h1>
+
+<%= render 'form', product: @product %>
+
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Show', @product %> |
+    <%= link_to 'Back', products_path %>
+  </div>
+</div>

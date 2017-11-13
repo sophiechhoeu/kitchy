@@ -1,0 +1,56 @@
+<%= render 'partials/navbar' %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="d-flex mx-auto logo">
+      <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+</div>
+
+
+
+<div class="card-columns">
+  <% @products.each do |product| %>
+    <div class="card product-bg mx-auto col-12 sm-col-12 col-4 product-card" style="width: 20rem;">
+      <img class="card-img-top"  src='<%= product.image_url %>'>
+    <div class="card-title">
+      <span class="product-info"> SELLER: </span><%=link_to product.user.profile.name, profile_path(product.user.profile.id) %>
+        <% if current_user.present? && product.user_id == current_user.id %>
+      <span class="product-info"><%= link_to 'Edit', edit_product_path(product), class:'ml-auto p-2 product-info' %></span>
+      <span class="product-info"><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class:'ml-auto p-2' %></span>
+      <% end %>
+    </div> <!-- card title info -->
+    <div class="card-body">
+      <p><span class="card-text product-info">NAME: </span><%= product.product_name %></p>
+      <p><span class="card-text product-info">PRICE: </span><%= product.price %></p>
+      <p><span class="card-text product-info">QUANTITY: </span><%= product.quantity_available %></p>
+      <p><span class="card-text product-info">CATEGORY: </span><%= product.category.category_name %></p>
+      <p><span class="card-text product-info">DESCRIPTION: </span><%= product.description %></p>
+      <p><span><%= link_to 'BUY', product, class:'ml-auto p-2 btn-font font-type btn btn-block'%></span></p>
+    </div><!-- product description -->
+  </div>
+  <% end %>
+</div>
+
+
+      <!-- <tr>
+        <td><%#= product.user.profile.name %></td>
+        <td><%#= product.product_name %></td>
+        <td><%#= product.description %></td>
+        <td><%#= product.price %></td>
+        <td><img src= '<%#= product.image_url %>'></td>
+        <td><%#= product.quantity_available %></td>
+        <td><%#= product.category.category_name%></td>
+        <td><%#= link_to 'Show', product %></td>
+        <td><%#= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> -->
+
+  <!-- </tbody>
+</table> -->
+
+<% if @products.blank? %>
+  <p>There are no products containing the term(s) <%= params[:search] %>.</p>
+<% end %>
+
+
+<br>

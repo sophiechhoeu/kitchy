@@ -1,0 +1,44 @@
+<%= form_with(model: profile, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="card bg-color product-card d-flex col-12 col-6 mx-auto" style="width: 20rem;">
+  <div class="field">
+    <%#= form.label :user_id %>
+    <%= form.hidden_field :user_id, :value => current_user.id%>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <p><%= form.text_field :name, id: :profile_name %><p>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %><br />
+    <p><%= form.text_field :address %><p>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :abn %>
+    <p><%= form.text_field :abn, id: :profile_abn %><p>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <p><%= form.text_area :description, id: :profile_description %><p>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class:"btn btn-block btn-font" %>
+  </div>
+<% end %>
+</div>

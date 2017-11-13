@@ -1,0 +1,78 @@
+<%= render 'partials/navbar' %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="d-flex mx-auto logo">
+    <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+
+</div>
+
+<div class="card d-flex col-12 col-6 mx-auto" style="width: 20rem;">
+  <div class="product-show">
+    <p>
+      <span class="product-info"><strong>Seller user:</strong></span>
+
+      <%= @product.user.profile.name%>
+    </p>
+
+    <p>
+      <span class="product-info"><strong>Product name:</strong></span>
+      <%= @product.product_name %>
+    </p>
+
+    <p>
+      <span class="product-info"><strong>Description:</strong></span>
+      <%= @product.description %>
+    </p>
+
+    <p>
+      <span class="product-info"><strong>Price:</strong></span>
+      <%= @product.price %>
+    </p>
+
+    <p>
+      <span class="product-info"><strong>Image</strong></span>
+      <img class="card-img-top" src= '<%= @product.image_url%>'>
+    </p>
+
+    <p>
+      <span class="product-info"><strong>Quantity available:</strong></span>
+      <%= @product.quantity_available %>
+    </p>
+
+    <p>
+    <span class="product-info"><strong>Category:</strong></span>
+      <%= @product.category.category_name %>
+    </p>
+  </div>
+  <% if current_user != @product.user %>
+<div class="stripe-button">
+    <%= form_tag charge_path do %>
+      <article>
+        <% if flash[:error].present? %>
+          <div id="error_explanation">
+            <p><%= flash[:error] %></p>
+          </div>
+        <% end %>
+      </article>
+
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-description="A month's subscription"
+              data-amount= <%=@product.price * 100 %>
+              data-currency="AUD"
+              data-locale="auto"></script>
+    <% end %>
+<%end%>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="d-flex justify-content-center product-show-footer">
+  <%= link_to 'Edit', edit_product_path(@product), class:"font-type font-color" %> |
+  <%= link_to 'Back', products_path, class: "font-type font-color"%>
+</div>

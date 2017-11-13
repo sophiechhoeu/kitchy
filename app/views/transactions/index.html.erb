@@ -1,0 +1,24 @@
+<%= render 'partials/navbar' %>
+
+<div class="row">
+  <div class="d-flex mx-auto logo">
+    <%= link_to(image_tag("kitchy_Logo.png"), root_path) %>
+  </div>
+</div>
+
+<h1 class="my-purchases">MY PURCHASES</h1>
+<% @transactions.each do |t| %>
+<div class="card mx-auto product-card d-flex col-12 col-6" style="width: 20rem;">
+    <div class="list transaction-info">
+
+    <% t.product.id %>
+    <p><strong>SELLER: </strong><%= t.product.user.profile.name %><p>
+    <p><strong>PRODUCT NAME: </strong><%= t.product.product_name %><p>
+    <p><img class="card-img-top" src='<%= t.product.image_url %>'><p>
+    <p><strong>PRICE: </strong> <%= t.price/100.round(2)%></p>
+    <p><strong>TRACKING: </strong> <%= t.stripe_transaction_id%></p>
+    <p><strong>PURCHASE DATE: </strong> <%= t.created_at.strftime("%A the %dth %B %Y")%></p>
+  </div>
+</div>
+
+  <% end %>
