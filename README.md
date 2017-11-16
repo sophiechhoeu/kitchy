@@ -143,7 +143,7 @@ A **Message** belongs to **Conversation**
 
 *Please note: this erd includes a cart system which wasn't implemented*
 
-  ![ERD](https://github.com/sophiechhoeu/kitchy2/blob/deploy/app/readme_images/kitchy_erd.png)
+  ![ERD](https://github.com/sophiechhoeu/kitchy/blob/master/app/readme_images/kitchy_erd.png)
 
 6 - Project plan and estimation.
 
